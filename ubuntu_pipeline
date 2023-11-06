@@ -13,9 +13,9 @@ pipeline{
         }
         stage('docker_push'){
             steps{
-                withcredentials([strings(credentialId: 'docker-slave', variable: 'docker-slave')]){
+                withCredentials([string(credentialsId: 'docker-slave2', variable: 'docker_slave')]) {
                     sh 'docker login -u praveenbyadagi -p ${docker-slave}'
-                    sh 'docker push -t praveenbyadagi/newproject:p1'
+                    sh 'docker push  -t spraveenbyadagi/newproject:p1'
                 }
             }
         }
